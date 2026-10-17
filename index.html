@@ -92,25 +92,45 @@ function belemToggle(name,button){if(belemProducts.has(name)){belemProducts.dele
 function belemReview(){const images=document.getElementById('reviewImages');images.innerHTML='';[...selected].sort((a,b)=>a-b).forEach(i=>{const im=document.createElement('img');im.src=photos[i];im.alt='Fotografia escolhida';images.append(im)});document.getElementById('reviewCount').textContent=selected.size+' fotografias selecionadas';const products=document.getElementById('reviewExtras');products.innerHTML='';if(!belemProducts.size)products.textContent='Nenhuma recordação adicional escolhida.';belemProducts.forEach(name=>{const el=document.createElement('div');el.textContent='✦ '+name;products.append(el)});belemPage('review')}
 function belemFinish(){document.getElementById('finalCount').textContent='♡ '+selected.size+' fotografias escolhidas';belemPage('finish')}
 function belemHome(){belemPage('gallery');document.getElementById('gallery').classList.remove('active');document.getElementById('home').classList.remove('hidden');window.scrollTo(0,0)}
-</script><script>
+</script>
+<style id="belem-navigation-repair">
+/* Navigation fallback even if a nonessential script fails to initialize. */
+body:has(#gallery:target) #home,body:has(#shop:target) #home,body:has(#review:target) #home,body:has(#finish:target) #home{display:none!important}
+#gallery:target,#shop:target,#review:target,#finish:target{display:block!important}
+body:has(#home:target) #home{display:block!important}
+body:has(#home:target) .screen{display:none!important}
+</style>
+<script id="belem-navigation-repair">
 (function(){
- function openGallery(event){
-   if(event){event.preventDefault();event.stopImmediatePropagation();}
-   var home=document.getElementById('home'),gallery=document.getElementById('gallery'),slides=document.getElementById('slides');
-   if(home)home.classList.add('hidden');
-   if(slides)slides.classList.remove('active');
-   for(var id of ['gallery','shop','review','finish']){var el=document.getElementById(id);if(el)el.classList.toggle('active',id==='gallery');}
-   if(gallery){gallery.style.display='block';gallery.style.visibility='visible';}
-   try{if(typeof stopMusic==='function')stopMusic();if(typeof timer!=='undefined')clearInterval(timer);}catch(e){}
+ function navigate(page){
+   var home=document.getElementById('home'), slides=document.getElementById('slides');
+   if(!home) return;
+   if(slides) slides.classList.remove('active');
+   for(var id of ['gallery','shop','review','finish']){
+     var node=document.getElementById(id);
+     if(node) node.classList.toggle('active',id===page);
+   }
+   home.classList.toggle('hidden',page!=='home');
+   if(page==='shop'){
+     var counter=document.getElementById('shopCounter');
+     if(counter&&typeof selected!=='undefined')counter.textContent=selected.size+' fotografias escolhidas';
+   }
+   try{history.replaceState(null,'',page==='home'?'#home':'#'+page)}catch(e){}
    window.scrollTo(0,0);
  }
+ window.belemSafeNavigate=navigate;
  document.addEventListener('click',function(e){
-   var target=e.target.closest('a,button');if(!target)return;
-   var txt=(target.textContent||'').trim().toLowerCase();
-   var href=target.getAttribute('href')||'';
-   if(href==='#gallery'||txt.includes('escolher minhas fotos')||txt.includes('ir para a galeria')||txt.includes('pular para as fotos')||txt.includes('ir para as fotos'))openGallery(e);
+   var target=e.target.closest('a[href="#gallery"],a[href="#home"],button[onclick*="belemPage"],button[onclick*="belemHome"]');
+   if(!target)return;
+   var page=null;
+   if(target.matches('a[href="#gallery"]')) page='gallery';
+   else if(target.matches('a[href="#home"]'))page='home';
+   else if(target.getAttribute('onclick')?.includes("belemPage('shop')"))page='shop';
+   else if(target.getAttribute('onclick')?.includes("belemPage('gallery')"))page='gallery';
+   else if(target.getAttribute('onclick')?.includes('belemHome()'))page='home';
+   if(page){e.preventDefault();e.stopImmediatePropagation();navigate(page)}
  },true);
- window.addEventListener('hashchange',function(){if(location.hash==='#gallery')openGallery();});
- if(location.hash==='#gallery')setTimeout(openGallery,50);
+ if(location.hash==='#gallery')navigate('gallery');
 })();
-</script></body></html>
+</script>
+</body></html>
