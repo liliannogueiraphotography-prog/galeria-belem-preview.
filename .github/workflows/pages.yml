@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Validar navegação e recursos da galeria
+        run: node .github/scripts/gallery-smoke.mjs
       - name: Configurar Pages
         uses: actions/configure-pages@v5
       - name: Preparar arquivos
