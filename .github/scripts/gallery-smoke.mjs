@@ -13,6 +13,10 @@ assert.equal(functionCount('belemPage'), 1, 'screen transitions must use one bel
 assert.equal(functionCount('belemHome'), 1, 'home transitions must use one belemHome wrapper');
 assert.match(html, /href="#gallery" onclick="return belemNavigate\('gallery',event\)">Escolher minhas fotos/);
 assert.match(html, /class="skip-gallery"[^>]*onclick="return belemNavigate\('gallery',event\)">Pular apresentação/);
+assert.match(html, /class="close-slides"[^>]*belemNavigate\('home',event\)/);
+assert.match(html, /id="pause" onclick="pauseSlides\(\)"/);
+assert.match(html, /id="nextSlide"[^>]*onclick="advanceSlide\(\)"/);
+assert.match(html, /function advanceSlide\(\)\{if\(index\+1>=photos\.length\)/);
 assert.match(html, /setInterval\(\(\)=>\{index\+\+;if\(index>=photos\.length\)\{endSlides\(\);return\}render\(\)\},3000\)/);
 assert.ok(html.includes('function togglePhoto(i){selected.has(i)?selected.delete(i):selected.add(i);persistBelemState();updateCounts()}'));
 assert.ok(html.includes("button.textContent='✓ Adicionado · remover'}persistBelemState()}"));
