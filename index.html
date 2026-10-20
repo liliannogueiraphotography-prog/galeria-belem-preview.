@@ -94,36 +94,42 @@ function belemFinish(){document.getElementById('finalCount').textContent='♡ '+
 function belemHome(){belemPage('gallery');document.getElementById('gallery').classList.remove('active');document.getElementById('home').classList.remove('hidden');window.scrollTo(0,0)}
 </script><script id="belem-navigation-repair">
 (function(){
-  function openSection(id){
-    var home=document.getElementById('home'), gallery=document.getElementById('gallery');
-    var section=document.getElementById(id);
-    if(!section) return;
-    if(typeof window.stopMusic==='function') {try{window.stopMusic()}catch(e){}}
-    if(window.timer)clearInterval(window.timer);
-    var slides=document.getElementById('slides');
-    if(slides) slides.classList.remove('active');
-    if(home)home.classList.toggle('hidden',id!=='home');
-    ['gallery','shop','review','finish'].forEach(function(k){
-      var el=document.getElementById(k);if(el)el.classList.toggle('active',k===id);
-    });
-    if(id==='shop'){
-      var count=document.getElementById('shopCounter');
-      if(count&&typeof selected!=='undefined')count.textContent=selected.size+' fotografias escolhidas';
-    }
-    window.scrollTo(0,0);
-  }
-  window.goGallery=function(){openSection('gallery')};
-  window.goHome=function(){openSection('home')};
-  window.belemPage=function(id){openSection(id)};
-  document.addEventListener('click',function(e){
-    var a=e.target.closest('a');
-    if(a&&(a.getAttribute('href')==='#gallery'||a.getAttribute('onclick')==='goGallery()')){
-      e.preventDefault();e.stopImmediatePropagation();openSection('gallery');
-    }
-    if(a&&a.getAttribute('href')==='#home'){
-      e.preventDefault();e.stopImmediatePropagation();openSection('home');
-    }
-  },true);
-  if(location.hash==='#gallery')openSection('gallery');
+function openSection(id){
+ var allowed=['home','gallery','shop','review','finish'];
+ if(allowed.indexOf(id)<0)return;
+ try{clearInterval(timer)}catch(e){}
+ try{if(typeof stopMusic==='function')stopMusic()}catch(e){}
+ try{if(typeof closePhotoViewer==='function')closePhotoViewer()}catch(e){}
+ var slides=document.getElementById('slides');if(slides)slides.classList.remove('active');
+ var home=document.getElementById('home');if(home)home.classList.toggle('hidden',id!=='home');
+ ['gallery','shop','review','finish'].forEach(function(key){var el=document.getElementById(key);if(el)el.classList.toggle('active',key===id)});
+ if(id==='shop'){var count=document.getElementById('shopCounter');if(count&&typeof selected!=='undefined')count.textContent=selected.size+' fotografias escolhidas'}
+ try{window.scrollTo(0,0)}catch(e){}
+}
+window.goGallery=function(){openSection('gallery')};
+window.goHome=function(){openSection('home')};
+window.endSlides=function(){openSection('gallery')};
+window.belemPage=function(id){openSection(id)};
+function onNavigationClick(e){
+ var target=e.target.closest('a,button');
+ if(!target)return;
+ var raw=target.getAttribute('onclick')||'';
+ var href=target.getAttribute('href')||'';
+ var label=(target.textContent||'').toLowerCase();
+ var isSkip=raw.indexOf('endSlides(')>=0||target.classList.contains('skip-gallery')||label.indexOf('pular apresentação')>=0;
+ var isGallery=raw.indexOf('goGallery(')>=0||href==='#gallery';
+ var isHome=raw.indexOf('goHome(')>=0||href==='#home';
+ if(isSkip||isGallery||isHome){
+  e.preventDefault();e.stopImmediatePropagation();
+  openSection(isHome?'home':'gallery');
+ }
+}
+document.addEventListener('click',onNavigationClick,true);
+document.addEventListener('touchend',function(e){
+ var b=e.target.closest('.skip-gallery');
+ if(!b)return;
+ e.preventDefault();e.stopImmediatePropagation();openSection('gallery')
+},true);
+if(location.hash==='#gallery')openSection('gallery');
 })();
 </script></body></html>
