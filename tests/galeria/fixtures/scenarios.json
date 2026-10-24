@@ -1,0 +1,105 @@
+{
+  "fixture_only": true,
+  "currency": "BRL",
+  "prices_are_test_values_not_commercial_defaults": true,
+  "studios": [
+    {
+      "id": "10000000-0000-4000-8000-000000000001",
+      "name": "ESTUDIO FICTICIO A"
+    },
+    {
+      "id": "10000000-0000-4000-8000-000000000002",
+      "name": "ESTUDIO FICTICIO B"
+    }
+  ],
+  "clients": [
+    {
+      "id": "20000000-0000-4000-8000-000000000001",
+      "studio_id": "10000000-0000-4000-8000-000000000001",
+      "name": "FAMILIA FICTICIA A1",
+      "email": "family-a1@example.invalid"
+    },
+    {
+      "id": "20000000-0000-4000-8000-000000000002",
+      "studio_id": "10000000-0000-4000-8000-000000000001",
+      "name": "FAMILIA FICTICIA A2",
+      "email": "family-a2@example.invalid"
+    },
+    {
+      "id": "20000000-0000-4000-8000-000000000003",
+      "studio_id": "10000000-0000-4000-8000-000000000002",
+      "name": "FAMILIA FICTICIA B1",
+      "email": "family-b1@example.invalid"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "30000000-0000-4000-8000-000000000001",
+      "studio_id": "10000000-0000-4000-8000-000000000001",
+      "client_id": "20000000-0000-4000-8000-000000000001",
+      "included_photos": 2,
+      "extra_photo_price_cents": 1000
+    },
+    {
+      "id": "30000000-0000-4000-8000-000000000002",
+      "studio_id": "10000000-0000-4000-8000-000000000001",
+      "client_id": "20000000-0000-4000-8000-000000000002",
+      "included_photos": 2,
+      "extra_photo_price_cents": 1000
+    },
+    {
+      "id": "30000000-0000-4000-8000-000000000003",
+      "studio_id": "10000000-0000-4000-8000-000000000002",
+      "client_id": "20000000-0000-4000-8000-000000000003",
+      "included_photos": 2,
+      "extra_photo_price_cents": 1000
+    }
+  ],
+  "synthetic_assets": [
+    {
+      "id": "40000000-0000-4000-8000-000000000001",
+      "studio_id": "10000000-0000-4000-8000-000000000001",
+      "session_id": "30000000-0000-4000-8000-000000000001",
+      "original_fixture": "original-a.svg",
+      "original_filename": "ORIGINAL-FICTICIO.svg",
+      "human_status": "approved"
+    },
+    {
+      "id": "40000000-0000-4000-8000-000000000002",
+      "studio_id": "10000000-0000-4000-8000-000000000001",
+      "session_id": "30000000-0000-4000-8000-000000000001",
+      "original_fixture": "original-b.svg",
+      "original_filename": "ORIGINAL-FICTICIO.svg",
+      "human_status": "approved"
+    },
+    {
+      "id": "40000000-0000-4000-8000-000000000003",
+      "studio_id": "10000000-0000-4000-8000-000000000001",
+      "session_id": "30000000-0000-4000-8000-000000000002",
+      "original_fixture": "original-b.svg",
+      "original_filename": "FAMILIA-A2-FICTICIA.svg",
+      "human_status": "approved"
+    },
+    {
+      "id": "40000000-0000-4000-8000-000000000004",
+      "studio_id": "10000000-0000-4000-8000-000000000002",
+      "session_id": "30000000-0000-4000-8000-000000000003",
+      "original_fixture": "original-a.svg",
+      "original_filename": "FAMILIA-B1-FICTICIA.svg",
+      "human_status": "approved"
+    },
+    {
+      "id": "40000000-0000-4000-8000-000000000005",
+      "studio_id": "10000000-0000-4000-8000-000000000001",
+      "session_id": "30000000-0000-4000-8000-000000000001",
+      "original_fixture": "original-b.svg",
+      "original_filename": "REJEITADA-FICTICIA.svg",
+      "human_status": "rejected"
+    }
+  ],
+  "fake_providers": {
+    "payments": "no_network",
+    "email": "capture_only",
+    "ai": "deterministic_fake"
+  }
+}

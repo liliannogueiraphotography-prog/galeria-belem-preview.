@@ -1,0 +1,8 @@
+{
+  "algorithm": "sha256",
+  "synthetic_fixtures_only": true,
+  "files": {
+    "original-a.svg": "34dc4e8f4b845541ab2a0ac7415eadf33db507df5515e39281dcec5b19cf30c9",
+    "original-b.svg": "a283408bf07f2e33d21433b864d2580271805ede3b66058d876fed0a4ff303c7"
+  }
+}
