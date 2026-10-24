@@ -93,7 +93,7 @@ npm --prefix apps/studio run build
 node .github/scripts/gallery-smoke.mjs
 ```
 
-O teste Node usa banco/diretório temporários e 16 cenários reais do domínio, autenticação, upload, seleção e isolamento. Não usa dados/segredos externos.
+O teste Node usa banco/diretório temporários e 17 cenários reais do domínio, autenticação, upload, seleção e isolamento. Não usa dados/segredos externos.
 
 A suíte Python/Playwright exige Python com `playwright` e `Pillow` e Chromium (disponíveis no ambiente de onboarding). Ela DEVE usar outro diretório sem dados reais. Exemplo em terminais separados:
 

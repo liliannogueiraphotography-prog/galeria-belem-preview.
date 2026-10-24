@@ -1,0 +1,71 @@
+name: Prévia temporária para teste no iPhone
+on:
+  push:
+    branches: [preview/iphone-temporary]
+    paths-ignore:
+      - deployment/preview-result.json
+permissions:
+  contents: write
+concurrency:
+  group: iphone-acceptance-preview
+  cancel-in-progress: true
+jobs:
+  acceptance-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 185
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+      BELEM_TEMPORARY_PREVIEW: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Instalar, testar e compilar
+        working-directory: apps/studio
+        run: |
+          set -euo pipefail
+          export BELEM_DATA_DIR="$RUNNER_TEMP/belem-iphone-demo"
+          npm ci --no-audit --no-fund
+          npm test
+          npm run build
+          npm run demo
+      - name: Abrir somente a prévia fictícia durante três horas
+        working-directory: apps/studio
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          export BELEM_DATA_DIR="$RUNNER_TEMP/belem-iphone-demo"
+          curl --fail --location --silent --show-error https://github.com/cloudflare/cloudflared/releases/download/2026.10.3/cloudflared-linux-amd64 -o "$RUNNER_TEMP/cloudflared"
+          printf '%s  %s\n' 053b80b0a23031a038fdbf3c073f59f82b8f1f152aa67971d7383ffafc0dbab0 "$RUNNER_TEMP/cloudflared" | sha256sum -c -
+          chmod 700 "$RUNNER_TEMP/cloudflared"
+          "$RUNNER_TEMP/cloudflared" tunnel --url http://127.0.0.1:3000 --protocol http2 --no-autoupdate > "$RUNNER_TEMP/tunnel.log" 2>&1 &
+          tunnel_pid=$!
+          app_pid=''
+          trap 'kill "$tunnel_pid" ${app_pid:-} 2>/dev/null || true' EXIT
+          for i in {1..45}; do
+            if grep -qE 'https://[a-z0-9-]+\.trycloudflare\.com' "$RUNNER_TEMP/tunnel.log"; then break; fi
+            kill -0 "$tunnel_pid" || { tail -n 15 "$RUNNER_TEMP/tunnel.log"; exit 1; }
+            sleep 2
+          done
+          export APP_ORIGIN="$(grep -oE 'https://[a-z0-9-]+\.trycloudflare\.com' "$RUNNER_TEMP/tunnel.log" | head -1)"
+          test -n "$APP_ORIGIN"
+          test "$APP_ORIGIN" != https://api.trycloudflare.com
+          npm start > "$RUNNER_TEMP/app.log" 2>&1 &
+          app_pid=$!
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:3000/api/v1/health > /dev/null; then break; fi
+            sleep 1
+          done
+          curl --fail --silent http://127.0.0.1:3000/api/v1/health
+          node --experimental-strip-types scripts/preview-session.ts
+          git -C ../.. add deployment/preview-result.json
+          git -C ../.. -c user.name='Belém preview' -c user.email='preview@example.invalid' commit -m 'Record encrypted temporary preview invitation'
+          git -C ../.. push origin HEAD:preview/iphone-temporary
+          printf 'Endereço público do login: %s/admin\n' "$APP_ORIGIN"
+          for i in {1..1080}; do
+            kill -0 "$tunnel_pid" || exit 1
+            kill -0 "$app_pid" || exit 1
+            sleep 10
+          done

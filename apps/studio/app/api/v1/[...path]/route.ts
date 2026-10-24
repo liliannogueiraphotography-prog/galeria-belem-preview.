@@ -1,3 +1,4 @@
+import {redeemPreviewInvite} from '../../../../lib/preview.ts';
 import {z} from 'zod';
 import {handle,json,Problem,auth,writeGuard,body,login,cookie,authCookie,cookies,galleryAuth} from '../../../../lib/auth.ts';
 import {one,all,run,hash,audit,passwordMatches,passwordHash,transaction} from '../../../../lib/db.ts';
@@ -10,6 +11,7 @@ async function dispatch(req:Request,ctx:Context){return handle(async()=>{
  const p=(await ctx.params).path,method=req.method;
  if(method!=='GET')writeGuard(req);
  if(p.join('/')==='health'&&method==='GET')return json({ok:true,storage:'private-local',database:'sqlite'});
+ if(p.join('/')==='auth/preview-invite'&&method==='POST'){const access=redeemPreviewInvite(await body(req));return json({ok:true},200,{'Set-Cookie':cookie(authCookie,access.session,access.maxAge)});}
  if(p.join('/')==='auth/login'&&method==='POST'){const x=z.object({email:z.email().max(254),password:z.string().min(1).max(256)}).parse(await body(req));const raw=login(x.email,x.password);return json({ok:true},200,{'Set-Cookie':cookie(authCookie,raw,12*3600)});}
  if(p[0]==='gallery'){
   const key=uuid.parse(p[1]),g=galleryAuth(req,key);

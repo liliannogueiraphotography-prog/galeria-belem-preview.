@@ -1,0 +1,16 @@
+.git
+**/node_modules
+**/.next
+**/.env
+**/.env.*
+!apps/studio/.env.example
+**/*.sqlite*
+**/demo-access.json
+**/access-*.json
+**/link-encryption.key
+**/objects
+**/cache
+**/tsconfig.tsbuildinfo
+**/next-env.d.ts
+.belem-runtime
+_site
