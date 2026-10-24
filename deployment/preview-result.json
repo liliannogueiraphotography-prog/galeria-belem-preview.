@@ -1,6 +1,21 @@
 {
-  "url": "https://shortly-bobby-whole-headphones.trycloudflare.com/admin",
-  "expiresAt": "2026-10-24T08:59:02.799Z",
-  "user_invite_ciphertext": "sfmkzkWXFTMaW37stf22gKNWOfJK/QxPDATwsQVq1a6Qehd4S60eTaFGC500Kipj300y83bExw7dvmA7UqZK4yhSeAYWCImqo3pgs3SUZMTsGGYg/oNulE4LVwI3aTSyThGrvdBFZfubOB1jUR3D/skkXsNNl0PxEuNHJ1vTkhVlw8YpL7/Owar4yww/MNkSxkr8bcSeB/aZT3ChnQsCcvDbVy2NSa5/Ewbj6V90WiaCu2rQ20ftrhfoP3n3cpfLkj9D5hWHQSJEEcykzLbCjbRuRmd/i0D/Kd62SWFnRgNdiu3UAw48RelrrFl24aNc2tPFjXTsFwLoNrnrq8WRioWk/yyBaYZMvSk+8tAtqwYU8duzvBpCAHlXrnCFOMDUt0Ksj2rwmBLQnzt79ERqoNoEP06y9PzwcLY0n4S21/ZgA8ioPuXNb7xvjI2wYFsDH8BX9Kds0gpGuxF0CB8FQ1Lf1JGHoyI+UV6HISjjAxi/emU6hbY0aIfj16qhOWahTQ2fklM04oi3ls4Hzfhi7Fyc9FKfS6vMIV+pFjVJKjVN4uHVk5gL5QoQkOSz5km5GZ/+12dxpZ82eFZPBzuLy3k4LQ2FDptUTwTRQf+TZMJ8m1zexVNVZA90nWVZO5X/GmJAFEYFuLJjXvwMC/fDL8+Vo8mmxmc9Q2aWlDqpLao=",
-  "verification_invite_ciphertext": "uqjmUkEAWi61rlubzXqytfQh137p+QUBLaD8hhVXAjqf0XKv/3zgAKLIZ2aV9itPUHXvNPCYoonNLhP7EQm0XUk7nOYP30yo3VLaBUMRKkcSRFzhntWEc8vOhLgr7p9h7S+IwnIS5PXPEebZZVQNdS4rkGyJXKGBEOBwZI7ECIJ9cSzEvaxUWcU2q+b6uFJ5sJ2H5Tw556McnkRm9j2aAsAlbxeT7yPrBZ2G4EdnRgwv8nCYxbPHJtM583EV039/8JqDxNcI80DmYrx9srJMqRJ7lMpHC55Cj0Q2ZeSg6HWEyOOcoZ7ODiriXB9ncDhUBB45ax6XfkRYz6KEX6jgbJXl72rUWyFn7ix1i8wPw2/0hkBwsj3sHQYeWpDF2j81HUra/gjy/SYP7XAt5ccjAB/wXHEIYV+RuK8v0xNoDHUYh2ANGjGRUCZa6S9D4l78j2u+Xj3PiQR/bdbIYp52rrH9hRMIqbPRcjohdzcgatdi/7glBNCK1c9vl76hKb5joN/VCBQK9N+HTEN7S8CPE2goQOhZOQV7NXgMpAOa6yZ5gv7ZjAtpQDg4eRBZ+QZrH2MiP/diY4vrBza9FBHIX1wlFi9KzDOvAKETyar8nXLOobXQv9eMSghgDxdeWFWWytt+H+0te8wg5+Gm+pJ3DqAUWylZ4fhV0jxJanPhHuY="
+  "verification": {
+    "verified": true,
+    "origin": "https://crystal-arrival-watts-sunglasses.trycloudflare.com",
+    "checkedAt": "2026-10-24T06:05:34.945Z",
+    "checks": [
+      "HTTPS login page",
+      "anonymous admin denied",
+      "one-use invitation and Secure HttpOnly session",
+      "family client package and session registration",
+      "private upload approval and individual gallery publication",
+      "approved frontend and server selection",
+      "selection recovery in fresh cookie context",
+      "cross-studio access denied"
+    ]
+  },
+  "url": "https://crystal-arrival-watts-sunglasses.trycloudflare.com/admin",
+  "expiresAt": "2026-10-24T09:05:35.170Z",
+  "user_invite_ciphertext": "nWathEvDuHwlzYYSaUHl95Ipg23pZ28d6aTuUdWO47AkmyudORFkeru+LWXcBIgEmdoK4OJ76BvtB5hkHt61APvtpGnJuyg+r51E2oW+XEM2CI6TvzpP4OlDVuCKLX2b7KWxIB8iwJ8mrAk+/xvuCjROONBOG1SikGXawHj9ifAOAsc4NIyK0y92z3bxkFv8e90weuqR914eqXsCOVzBNfowphxoOPRt67GJYCcLxmeZXUo+HNchPSLCLS3OKjGJ0DcD/FYRmpG4wI5YALNLxMkvyq2LFEiok7UrzUsof8eJZAASk103M1MN0XIyy3um2TB9kwXGkfo816ZWAhPTWSY8XfxreERGsnzad2TtqQKv6tRkoBJYAJ7ccKPY/aaHpiu7lLT6OzNQyT/13KTke1Mh63lKJFa3WKN1xGQc9c5EUQHbwn6HPPS1e84AioYl5/j8VwHvsxSLzq0EuohXD5lMRx/kNByMzR6sRzUMCILCwsI7olsvSVhn3t786pTiUVGHQt9RgZxy1QohmpjW3EX13KB+fAYeMrg8QACj2hrYKE+3ONMBrP/llphRxYhmLjDSOQQdXC76PisDGeQn0eQKE6E0t56yLWEgeFTq7AEmFuS/ReVsghP/N6lsXRfSaFruk1faFMH3EpXTkKYZDCJ96oaRj8dWyfgPKChNUfU=",
+  "verification_invite_ciphertext": "eIWAiE8rpsT1qAd9cz7mT+SueIkiRh9QZUNQ5n0xwcMQVPIkrhyIm7GAv9S+14GqqkgVzEbKqj3GP3nX5E3gOdZb1REZ7hnqdokssxs1hC616Z+T6vFg/KLsv2xaUZx3RDFTt0NRyXOK5d0ThY3rTURm7wi5+qEuXfJkWQ/gh214YLma5Tlu5y97AJsq+202GLY45kUUXaN/bcpXzBQnZlwmN7qpn0NWtM+Yytm3HuuVOZ2uuEvbIuwqfSlhM/dc3Y6OX3FYrRx9BvTObj2QwOGgrAOClU3spazwBd75VG8fi6khdStmiLc8Dg0NAK4Dv9UMbraYqtGyw21rZTvSgQrArNquiJeIZsACMSCeXCx01g89WdVSsBoE6qdgkLuqtMVHAyTQ0FChHGPQL/RrdzzPxVCl2Gy2lV1mt6cKyOEZKzjRNwO2guqmqw6zhhCSPg1E3nMepn3lV+8VO/gbti2CvfjY6RdLF/EbpbqvWg/41f+3fASCrPevNZTBESjtdxYeGFTmWTiRKRVhPtsmZY5RB2nUcHNCWHjxEEi6AdVwGuOoguYWdbAg1cdENo5AXLOUROv7m3FWUGdNwzcX2ZZPdzLccIWTvz9tqxdAfcY4tbWpQ2byexn6dOQrH9uUfv04lu27sllA4w7iLD9jKzGzMKgFQ8JAIvbt1OrdHyg="
 }
