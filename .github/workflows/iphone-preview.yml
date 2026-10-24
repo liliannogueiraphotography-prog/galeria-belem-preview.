@@ -59,6 +59,8 @@ jobs:
             sleep 1
           done
           curl --fail --silent http://127.0.0.1:3000/api/v1/health
+          export PREVIEW_VERIFICATION_FILE="$RUNNER_TEMP/public-verification.json"
+          node --experimental-strip-types scripts/verify-public-preview.ts
           node --experimental-strip-types scripts/preview-session.ts
           git -C ../.. add deployment/preview-result.json
           git -C ../.. -c user.name='Belém preview' -c user.email='preview@example.invalid' commit -m 'Record encrypted temporary preview invitation'
