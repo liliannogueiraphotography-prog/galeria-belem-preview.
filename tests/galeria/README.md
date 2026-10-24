@@ -1,3 +1,7 @@
+# Testes implementados
+
+A suíte funcional atual está em `apps/studio/tests/`: testes Node em SQLite temporário e nove cenários Playwright/API com dados artificiais. Veja [como executar](../../apps/studio/README.md). O plano e as fixtures iniciais abaixo permanecem como histórico.
+
 # Testes da plataforma — estrutura inicial
 
 **Fixtures e plano de aceitação. Backend e novos testes executáveis ainda não implementados.**

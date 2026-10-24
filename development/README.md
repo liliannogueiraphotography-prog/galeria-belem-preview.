@@ -1,3 +1,7 @@
+# Estado atual
+
+A primeira etapa já foi implementada em `apps/studio`. Use [o guia funcional](../apps/studio/README.md). O texto abaixo registra a preparação anterior à aprovação.
+
 # Desenvolvimento — preparação para aprovação
 
 Estado: documentação e fixtures. Aplicações novas NÃO implementadas.
