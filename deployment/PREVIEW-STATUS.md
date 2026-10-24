@@ -1,3 +1,13 @@
+# Prévia de aceitação HTTPS validada
+
+Estado: ativa temporariamente em runner padrão gratuito do GitHub, separado do site oficial. Login público: https://crystal-arrival-watts-sunglasses.trycloudflare.com/admin . Validade do convite: 24/10/2026 09:05 UTC (05:05 em Cuiabá). O endereço deixa de funcionar ao encerrar o job.
+
+Verificação externa em 24/10/2026: HTTPS, bloqueio de administrador anônimo, convite único/cookie Secure HttpOnly, cadastros, upload privado, aprovação/publicação, seleção e recuperação em nova sessão, isolamento entre estúdios. O convite da usuária não foi consumido. Ele é entregue apenas na conversa privada, nunca neste arquivo.
+
+Veja `deployment/GITHUB-PREVIEW.md`. Não houve publicação de Pages, alteração de main, contratação paga ou dados reais. Arquivos e banco de demonstração são descartados ao encerrar o runner.
+
+## Histórico das alternativas anteriores
+
 # Prévia externa — bloqueada, sem URL publicada
 
 A configuração de rede foi ativada pela proprietária e uma nova tentativa Cloudflare foi realizada. O DNS agora resolve, mas a conexão nativa HTTPS é recusada. Não repetir o mesmo comando sem alteração significativa da infraestrutura.
