@@ -15,7 +15,6 @@ jobs:
     timeout-minutes: 185
     env:
       NEXT_TELEMETRY_DISABLED: '1'
-      BELEM_TEMPORARY_PREVIEW: '1'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -36,6 +35,7 @@ jobs:
         run: |
           set -euo pipefail
           umask 077
+          export BELEM_TEMPORARY_PREVIEW=1
           export BELEM_DATA_DIR="$RUNNER_TEMP/belem-iphone-demo"
           curl --fail --location --silent --show-error https://github.com/cloudflare/cloudflared/releases/download/2026.10.3/cloudflared-linux-amd64 -o "$RUNNER_TEMP/cloudflared"
           printf '%s  %s\n' 053b80b0a23031a038fdbf3c073f59f82b8f1f152aa67971d7383ffafc0dbab0 "$RUNNER_TEMP/cloudflared" | sha256sum -c -
