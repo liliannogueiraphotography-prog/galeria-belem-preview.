@@ -1,8 +1,8 @@
 {
   "verification": {
     "verified": true,
-    "origin": "https://checked-globe-suite-newsletter.trycloudflare.com",
-    "checkedAt": "2026-10-30T02:51:15.365Z",
+    "origin": "https://babies-nashville-twiki-fire.trycloudflare.com",
+    "checkedAt": "2026-10-30T03:31:47.222Z",
     "checks": [
       "HTTPS login page",
       "anonymous admin denied",
@@ -11,11 +11,12 @@
       "private upload approval and individual gallery publication",
       "approved frontend and server selection",
       "selection recovery in fresh cookie context",
+      "private product image, persistent cart and server estimate",
       "cross-studio access denied"
     ]
   },
-  "url": "https://checked-globe-suite-newsletter.trycloudflare.com/admin",
-  "expiresAt": "2026-10-30T05:51:15.578Z",
-  "user_invite_ciphertext": "pFNO4CX5FTVifr2IXXnxZ8+UgJ4VL0TXYk/D0jNKHquzKddDLBjx58TEqjEBn1syEeX4P8FK9z8WfcckVtofQEOey0jeCtSJ5aCCfQl0X1yxzbgMKHsWS1e7lmYXVEwzV6W+JyliPDKt/Ggn5DZRiXoDQ8/z1OaJrKW5MEm5JwrqAML3DcHZos1wONdOrkgTgjmZ17c/a7BJw32ZUwcDgco8FdBSNxXb7R20N+E8b8e+hctcuGC+DPygmHgPsgqHHXtaVm9JpLiEbb9nfgWEfkqazP644WgzCjSYsSA+2TFsXX76nOldpsKm7IjI+2cFSK0TBANO4v+LsZFnn5Xc/C4CxGCL64YbnPrqnOk6YXn3qudioMWPWFJTn5C5+07IuqEILEiiR8ul1/4zrinL2pbf9h7X4Qyyr6Ij1iTMnSxVIDFEWACX6uMkOie6oz1Lu/IgoDqisIwlGTADzikueeKCQBIsM7YltMemgN7JePVOiSTnGILkMTqFBCGNTleo5rv9oP2dpoczJuW2UAtVs8InBW3THRqrTivTHvb6aMp8ILbPqRzi17gGFaNCAaFGA+RixmyNHbk8OJ+3oVFBhFM4lVgimHYwGLzpNFeZbIK9lRAvBeVIFxWdOmVxWCbyvozSSBCX20N4uGo3o8UZrE2D4GPlSoFcsKWX/nr9A4I=",
-  "verification_invite_ciphertext": "ajZHHP2CBs8G7uWdDsHLU76GYgcLGMylhW+Hm10FBe4CS5IhB6CAMt5WoTrO9DfviljCkhDGHxDD4SEir90RPzfqSLJre8+aavRFpAqk4KzoBCaDlN8AYB0jS4oBY6TX1Ka3ow40ZPi0QBJ/oKj8H4uXCAzwWATa/dqxpVXcwkqutRCwMnrB2TeRhppkiIC7bM3TLAko4jqF4FRQSVSjfkJiMDW4pOjI90tbDSrDPDppN/eHLUBvB8sBGCbYbESY1++4LGEU0q3mROKyDYGoLMnZmpNY0Z8ca/DSdXVNHhyTOdFItTQeLIJ0bc8kSTk2XD1mS/ZNlI40W2N0ybbyEh864y+kUal4B01gNaDig7d+2cjtZ5OcvUYHC6H/GnudCh56nf9KcPeWaFsrt2D8crjfgVrllgwXw7QokGfx0bAv4a2rYOj6hsGTIgEr/TgqbQ5Lkwo7HhkM0sVcyc9xW1Nxu0h2L5x7//QMM2R0or5uBk5ySY/XSl21VocRIX2T1o0RdOTh5xaXErATvcYx5Y73PFAbZ1BkxUWg3r6DYQSCxKEMEGkFaDkVhBpCY0Cu+9OavW/twTJqkqj9v4TIpG4/wdzjjdVjQGg7voInTtO27+53W0Lpt0KfXL3PXC4AMxHEzN0Q4eh68SMxZo6CI/cv0sthjDW6HOyoAk51auo="
+  "url": "https://babies-nashville-twiki-fire.trycloudflare.com/admin",
+  "expiresAt": "2026-10-30T06:31:47.494Z",
+  "user_invite_ciphertext": "hI0+scfePRZwy55lldFUhzsikEsBJVnZyLFjGV1Y9nS4hU8BRopvoBKN5ZD9j/df/SodlsKZWjf93A02QLTCGPWQMmtT5PhCH5vxgHERsdgjlZDVoveDQGIZTA/wuANJUDqMXwL7TVI1MRS1nSqkbsX05i2UfkembRphSDHZIMQ2CPce1RsGjfL89D8xtoazwRd0XIF3PYkBCfcvJVpQYqTZYGSgGH0gGhctlprK2WG+qBt35U41ww/dD6bzp0EbeckOgZtJpPvGzr6Vo68wmztBqQ2JhF46DRmEKabA5QSJcDkVJjYQjBd14nndfwYEvNQe0wG+XsLpdfgmRk6c+aBY4KGd4qkUPoLu++kh+g+irXZMpSAf/IbkIXQnN6JGdOXDFKmmx/jeEY7knOICEA4Qx1CFjVTe3JfTn7xGzrKdQZfIA9BkAjSgGw+W653da5X91eWVpg2euY8yyGEu509ARBUaUGZEzlCpais/2jl0AMFLVRcrb8dXNJzcw3uHDBQNw6zwHtkClOUSgmuekFL2WTUITjb7F+AfKYS4PMOXP8vFUgmPU/ZxZN2bBxwZxCFvVeZ7DkCjKAuu2xIUsb6k36kSrdK+iSmxHGSbCI3a0i5AvR4Pr8mAV4osu973OAbeDlKFNDcfbZvgOS4XoGzJutMVbi6pBGmCl7emWWc=",
+  "verification_invite_ciphertext": "Zwfhk6DoxyPILTyR1H/z1OndkTB+wR1INCHmVuOpg94rZ4Auo69kj4U9TLhkTpHV2NhoTNMoEABpzykZ3rTEJnRGuHrcGICASE3iFt0NBbxHD/myOOLHTcPaZGfFK0cGpvNi3fQbGVyNxTD1YP52ckSFpArsRf0fJo3aE4/aENvfb4xGMzYQQ+dlE0rHtTrEZLmK1gzwk+Wzrtqvut2SqgAQ8M6TlZaUVI8kszwKvb6vLFm4wQWTM2X9tVtpdc77BdWgvnM2tQq0rZRlgt0nP03mYt84Y01aRAXfMJwt+pOKf23oTd9Wv7fvbUnXnKc0ff8fLabAZ3CD+0Nn+jqCfH0W4DIfAcBHfe7ctKgkDC5Bbq85VrfAsseJq7DiQlfZznJKK4QKumwmzHlce2WelYYb+uQYE8IL5T9iefBMA4VMMikOX9/4iVSwEuprZT0Smtlv7lBqiXwHAomLyw4DZbdLneijSmws04LLrx8rM113v5pWYhuS9nX87M9f+G1Snij7ImzExmv3sVQWozmFSPMxNyL9fu8vRD+BJnivL3u07p8qV7sNfRXhUAy18OFexoVANRD+oIrvzRvX8HzRMCh7KvQbe/+t2YKb+p86ScP5a1s+/JRUtqPAjqKR7VK1FyKFfOz8EOKPE84Xfh4AM/2LGBqSgEoHR8LZV1WIUZ4="
 }
