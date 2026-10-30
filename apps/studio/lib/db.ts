@@ -7,7 +7,9 @@ export const root = path.resolve(process.env.BELEM_DATA_DIR || '/workspace/.bele
 mkdirSync(root, {recursive:true, mode:0o700}); chmodSync(root,0o700);
 export const db = new DatabaseSync(path.join(root,'studio.sqlite'));
 chmodSync(path.join(root,'studio.sqlite'),0o600);
-db.exec(`PRAGMA journal_mode=WAL; PRAGMA foreign_keys=ON; PRAGMA busy_timeout=5000;
+// Configure contention handling before WAL/schema initialization in concurrent workers.
+db.exec('PRAGMA busy_timeout=5000');
+db.exec(`PRAGMA journal_mode=WAL; PRAGMA foreign_keys=ON;
 CREATE TABLE IF NOT EXISTS studios(id TEXT PRIMARY KEY,name TEXT NOT NULL,created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP);
 CREATE TABLE IF NOT EXISTS users(id TEXT PRIMARY KEY,email TEXT NOT NULL UNIQUE,password_hash TEXT NOT NULL,created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP);
 CREATE TABLE IF NOT EXISTS memberships(studio_id TEXT NOT NULL REFERENCES studios(id),user_id TEXT NOT NULL REFERENCES users(id),role TEXT NOT NULL CHECK(role IN ('owner','admin')),PRIMARY KEY(studio_id,user_id));
