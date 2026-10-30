@@ -17,7 +17,8 @@ async function request(label:string,url:string,method='GET',data?:unknown,jar=ne
  return r;
 }
 try{
- const landing=await request('login HTTPS','/admin');if(!(await landing.text()).includes('Belém Studio'))throw new Error('Unexpected login page');passed.push('HTTPS login page');
+ // A newly issued tunnel can take a few seconds to propagate. Retry only this read.
+ let landing:Response|undefined;for(let attempt=0;attempt<8;attempt++){try{landing=await request('login HTTPS','/admin');break;}catch(error){if(attempt===7)throw error;await new Promise(resolve=>setTimeout(resolve,3000));}}if(!landing)throw new Error('HTTPS tunnel did not become ready');if(!(await landing.text()).includes('Belém Studio'))throw new Error('Unexpected login page');passed.push('HTTPS login page');
  await request('unauthenticated admin','/api/v1/admin/overview','GET',undefined,undefined,401);passed.push('anonymous admin denied');
  const secret=createPreviewInvite('outro@belem.test',Date.now()+20*60000),password=randomBytes(24).toString('base64url');
  const login=await request('one-time invitation','/api/v1/auth/preview-invite','POST',{token:secret,password},admin);
