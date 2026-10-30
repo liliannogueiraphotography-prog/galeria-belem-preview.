@@ -1,8 +1,8 @@
 {
   "verification": {
     "verified": true,
-    "origin": "https://babies-nashville-twiki-fire.trycloudflare.com",
-    "checkedAt": "2026-10-30T03:31:47.222Z",
+    "origin": "https://agent-tried-museums-convention.trycloudflare.com",
+    "checkedAt": "2026-10-30T03:46:06.643Z",
     "checks": [
       "HTTPS login page",
       "anonymous admin denied",
@@ -15,8 +15,8 @@
       "cross-studio access denied"
     ]
   },
-  "url": "https://babies-nashville-twiki-fire.trycloudflare.com/admin",
-  "expiresAt": "2026-10-30T06:31:47.494Z",
-  "user_invite_ciphertext": "hI0+scfePRZwy55lldFUhzsikEsBJVnZyLFjGV1Y9nS4hU8BRopvoBKN5ZD9j/df/SodlsKZWjf93A02QLTCGPWQMmtT5PhCH5vxgHERsdgjlZDVoveDQGIZTA/wuANJUDqMXwL7TVI1MRS1nSqkbsX05i2UfkembRphSDHZIMQ2CPce1RsGjfL89D8xtoazwRd0XIF3PYkBCfcvJVpQYqTZYGSgGH0gGhctlprK2WG+qBt35U41ww/dD6bzp0EbeckOgZtJpPvGzr6Vo68wmztBqQ2JhF46DRmEKabA5QSJcDkVJjYQjBd14nndfwYEvNQe0wG+XsLpdfgmRk6c+aBY4KGd4qkUPoLu++kh+g+irXZMpSAf/IbkIXQnN6JGdOXDFKmmx/jeEY7knOICEA4Qx1CFjVTe3JfTn7xGzrKdQZfIA9BkAjSgGw+W653da5X91eWVpg2euY8yyGEu509ARBUaUGZEzlCpais/2jl0AMFLVRcrb8dXNJzcw3uHDBQNw6zwHtkClOUSgmuekFL2WTUITjb7F+AfKYS4PMOXP8vFUgmPU/ZxZN2bBxwZxCFvVeZ7DkCjKAuu2xIUsb6k36kSrdK+iSmxHGSbCI3a0i5AvR4Pr8mAV4osu973OAbeDlKFNDcfbZvgOS4XoGzJutMVbi6pBGmCl7emWWc=",
-  "verification_invite_ciphertext": "Zwfhk6DoxyPILTyR1H/z1OndkTB+wR1INCHmVuOpg94rZ4Auo69kj4U9TLhkTpHV2NhoTNMoEABpzykZ3rTEJnRGuHrcGICASE3iFt0NBbxHD/myOOLHTcPaZGfFK0cGpvNi3fQbGVyNxTD1YP52ckSFpArsRf0fJo3aE4/aENvfb4xGMzYQQ+dlE0rHtTrEZLmK1gzwk+Wzrtqvut2SqgAQ8M6TlZaUVI8kszwKvb6vLFm4wQWTM2X9tVtpdc77BdWgvnM2tQq0rZRlgt0nP03mYt84Y01aRAXfMJwt+pOKf23oTd9Wv7fvbUnXnKc0ff8fLabAZ3CD+0Nn+jqCfH0W4DIfAcBHfe7ctKgkDC5Bbq85VrfAsseJq7DiQlfZznJKK4QKumwmzHlce2WelYYb+uQYE8IL5T9iefBMA4VMMikOX9/4iVSwEuprZT0Smtlv7lBqiXwHAomLyw4DZbdLneijSmws04LLrx8rM113v5pWYhuS9nX87M9f+G1Snij7ImzExmv3sVQWozmFSPMxNyL9fu8vRD+BJnivL3u07p8qV7sNfRXhUAy18OFexoVANRD+oIrvzRvX8HzRMCh7KvQbe/+t2YKb+p86ScP5a1s+/JRUtqPAjqKR7VK1FyKFfOz8EOKPE84Xfh4AM/2LGBqSgEoHR8LZV1WIUZ4="
+  "url": "https://agent-tried-museums-convention.trycloudflare.com/admin",
+  "expiresAt": "2026-10-30T06:46:06.904Z",
+  "user_invite_ciphertext": "gVAfH33dKE6y55O/UKN9zOHg43fb1R9a+DItS1gWJenEm2vXpT3Nz+eXqMlcvZ1wZq8tBzaS4LqIfBgfoRQnZC7ztpL7x/Ns0AbKJGVqGZjeCxjTudDVDg2/raz3Gfjunlp8b1RiqFx8qJwu4G3fVZ/iDChw6oPJSFst2fxv/WpSnosudkRb/kfEziuWeRMRykHVjuFyuqSkOrFYUcdWbekGeXOZpNvoQlMnTBQLv6bkoqX/ch4+TLe8SM8fGrNcOZTpNXLiyF4Je9TITLH6UoRk79S31Y3t5TZmLG6BKFpW3NlaX2aVELq2MRAdEh7+i7GY8URFiiYhbJVvxB0dQZeqdMc3qqzt8jcU9VMpRvRwn/tv9DtuXkApX/ePo0P6LPG79nuJXtFgmgNYmqEql/74aIHJ4R6K1/rVrZRAmJUbxG3HQeI5Cum3p4XEfeNEoo9i9wCZ8PmhPnZ/0QrR3us4Q/HRZPMhXaTe4GnyuZ9Ljr2K7xHcXqc7a1EbANTXcWJi1VxEYjDBiLnwv+cqzNXc4+2nAaUOoXZWJ87N5BhP1IN3KzWr3w4jKg/TZMDK5cJKj4c2XQ+rle0diq1O6xY6Qe+KT9Ek7AAQ9SUW2yvgDjbdNB43TE+Pd1oknfylj1kKOYhmFM2ADWLJwO6yHMQ4kvcaTZvLFpFdIZeurp4=",
+  "verification_invite_ciphertext": "EBCtk8vpxmE1ZzQyX6Hp5ntFt3sk5ahYjMxDyeAYsnoBFyuQY0Tr4UEw5JjluUOHBkbl+Zs4jS2Q0WAR+UazCuStMmC4BnyGOgPdn0d9wIZZfrMrj3Bj0U6GtmEfS60oGj4Wf41S2UAUTOcR2fAQmOyx0A8DHCLVyi8r3N9mxiLU1rRnLUtwWVCZwgXkym0NG1BSgRv5VBpZheHglG7WwbzvTiFvIfvdNwFzxx0Nyn9AqWLUmXrFoPgALO5aTfAnlksmH2l47fuxJBLaYceN+dTGs8AUBogPq9R1HwNUKloaYE2nZR/mFRar7eobwvIYajNuzLSi7rUvH+lODWpBVgglmMigry83+XCYTqGpQ0+w2flrv0vvpu+lwFVn+O6Uf1SKIhmjL0qY0v+vcciEdxYmsJqHxF9xYtrniNTBu32dtGsefJD4xg6lYxUHByk5VsFrGDIuLWvm2y7adOm63Kned6Dzakd9Heuac1QDjbYwCwk6OHqCQbqHWAm4Z4KFUd0tCSt7mupLYR8Hf39aA91cZgRPXia3nURBz9GYMutp6mcxl0PkAL+lS8b03YMugToJSkpxzvXoF6INJYAS0ubydgwhcU5r0mNtX1CaNnr5TYdldEnGoYsmIeC3gq3Q8+gn1vMyJbkFo/UsvzUmuWVcUaE59ud0UavgE7tXXm8="
 }
