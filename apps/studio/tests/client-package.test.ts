@@ -1,0 +1,15 @@
+import {test,after} from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtempSync,rmSync} from 'node:fs';
+import path from 'node:path';
+import {tmpdir} from 'node:os';
+const dir=mkdtempSync(path.join(tmpdir(),'belem-package-'));process.env.BELEM_DATA_DIR=dir;
+const db=await import('../lib/db.ts'),s=await import('../lib/service.ts');
+const a=db.createStudio('Estúdio A','a@example.invalid','test-password-1234'),b=db.createStudio('Estúdio B','b@example.invalid','test-password-5678');
+const f=s.saveFamily(a.studio,{name:'Família fictícia'},a.user),p=s.savePackage(a.studio,{name:'Pacote 10',included:10},a.user),p2=s.savePackage(a.studio,{name:'Pacote 20',included:20,extraCents:4000},a.user),foreign=s.savePackage(b.studio,{name:'Pacote alheio',included:3},b.user);
+const c=s.saveClient(a.studio,{name:'Cliente fictícia',familyId:f,packageId:p},a.user);
+test('pacote no cadastro e R$ 40 por foto extra são persistidos',()=>{const client=s.overview(a.studio).clients.find(x=>x.id===c)!;assert.equal(client.chosen_package_id,p);assert.equal(s.scoped('packages',a.studio,p).extra_cents,4000);});
+test('novo ensaio herda pacote e guarda valores contratados',()=>{const sid=s.saveSession(a.studio,{title:'Ensaio herdado',clientId:c},a.user);const session=s.sessionDetail(a.studio,sid).session;assert.equal(session.package_id,p);assert.equal(session.included,10);assert.equal(session.extra_cents,4000);assert.equal(session.discount_from,16);assert.equal(session.discount_cents,3500);s.savePackage(a.studio,{name:'Pacote atualizado',included:10,extraCents:5000},a.user,p);assert.equal(s.sessionDetail(a.studio,sid).session.discount_cents,3500);s.saveClient(a.studio,{name:'Cliente fictícia',familyId:f,packageId:p2},a.user,c);assert.equal(s.sessionDetail(a.studio,sid).session.included,10);const next=s.saveSession(a.studio,{title:'Outro ensaio',clientId:c},a.user);assert.equal(s.sessionDetail(a.studio,next).session.included,20);});
+test('pacote de outro estúdio é bloqueado por serviço e banco',()=>{assert.throws(()=>s.saveClient(a.studio,{name:'Invasão',familyId:f,packageId:foreign},a.user));assert.throws(()=>db.run('UPDATE client_packages SET package_id=? WHERE client_id=?',foreign,c));assert.equal(s.overview(a.studio).clients.find(x=>x.id===c)!.chosen_package_id,p2);});
+test('editar contato preserva pacote omitido; limpeza explícita remove associação',()=>{s.saveClient(a.studio,{name:'Contato atualizado',familyId:f,email:'contact@example.invalid'},a.user,c);assert.equal(s.overview(a.studio).clients.find(x=>x.id===c)!.chosen_package_id,p2);s.saveClient(a.studio,{name:'Contato atualizado',familyId:f,packageId:null},a.user,c);assert.equal(s.overview(a.studio).clients.find(x=>x.id===c)!.chosen_package_id,null);});
+after(()=>{db.db.close();rmSync(dir,{recursive:true,force:true});});

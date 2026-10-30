@@ -43,3 +43,14 @@ Navegadores não garantem bloqueio de screenshot, gravação de tela ou câmera 
 `tests/shop_browser.py`: iniciar um servidor sobre uma pasta recém-criada com `npm run demo`, configurar `BELEM_SHOP_ORIGIN` e `BELEM_SHOP_ACCESS`, rodar Python com Playwright e Pillow. Valida cadastro real pela interface, upload artificial, catálogo responsivo em 320/390/768/1440, carrinho com quantidade, revisão, persistência em novo navegador, acesso anônimo, isolamento e retirada de produto indisponível.
 
 `tests/browser.py`: regressão dos fluxos anteriores, apenas dados fictícios.
+
+## Ajuste de pacote e comunicação dos produtos
+
+- Cadastro da cliente inclui pacote escolhido, isolado por estúdio, sugerido automaticamente no novo ensaio e resolvido também no backend.
+- O ensaio mantém uma cópia da quantidade e preço contratados; mudar o cadastro da cliente não reprecifica galerias existentes.
+- Novos pacotes têm preço padrão de R$ 40 por fotografia extra. Pacotes/ensaios existentes não são modificados automaticamente.
+- Galeria informa quantidade incluída, extras selecionadas e preço unitário contratado; a revisão continua calculada no servidor.
+- Desconto confirmado: de 1 a 15 extras, R$ 40 cada; a partir de **16 fotos extras**, todas as extras custam **R$ 35 cada** (economia de R$ 5 por extra). O limite se aplica às extras além do pacote. Exemplos: 15 extras = R$ 600; 16 extras = R$ 560; 17 extras = R$ 595. A regra é guardada no contrato do ensaio, sem alterar contratos antigos. A galeria e a revisão mostram preço unitário, total e economia; o servidor faz o cálculo.
+- Descrições sugeridas por categoria destacam uso cotidiano, memória afetiva e presente; não inventam materiais, tamanhos, prazos ou qualidade de fabricação.
+- O painel oferece sugestão editável e preserva texto personalizado quando a categoria muda. Backend preenche descrição vazia com a sugestão da categoria. Textos já personalizados não são substituídos em massa.
+- Testes adicionais: quatro testes de domínio sobre herança, preço padrão, preservação e isolamento; `tests/client_package_browser.py` valida os formulários, extra de R$ 40 na galeria/revisão e sugestões no celular com dados artificiais.

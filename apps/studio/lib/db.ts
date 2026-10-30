@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS login_attempts(key TEXT PRIMARY KEY,attempts INTEGER 
 CREATE TABLE IF NOT EXISTS families(id TEXT PRIMARY KEY,studio_id TEXT NOT NULL REFERENCES studios(id),name TEXT NOT NULL,notes TEXT NOT NULL DEFAULT '',UNIQUE(studio_id,id));
 CREATE TABLE IF NOT EXISTS clients(id TEXT PRIMARY KEY,studio_id TEXT NOT NULL,family_id TEXT NOT NULL,name TEXT NOT NULL,email TEXT NOT NULL DEFAULT '',phone TEXT NOT NULL DEFAULT '',UNIQUE(studio_id,id),FOREIGN KEY(studio_id,family_id) REFERENCES families(studio_id,id));
 CREATE TABLE IF NOT EXISTS packages(id TEXT PRIMARY KEY,studio_id TEXT NOT NULL REFERENCES studios(id),name TEXT NOT NULL,included INTEGER NOT NULL CHECK(included>=0),extra_cents INTEGER NOT NULL CHECK(extra_cents>=0),UNIQUE(studio_id,id));
+CREATE TABLE IF NOT EXISTS client_packages(studio_id TEXT NOT NULL,client_id TEXT PRIMARY KEY,package_id TEXT NOT NULL,FOREIGN KEY(studio_id,client_id) REFERENCES clients(studio_id,id),FOREIGN KEY(studio_id,package_id) REFERENCES packages(studio_id,id));
 CREATE TABLE IF NOT EXISTS sessions(id TEXT PRIMARY KEY,studio_id TEXT NOT NULL REFERENCES studios(id),client_id TEXT,package_id TEXT,title TEXT NOT NULL,shoot_date TEXT NOT NULL DEFAULT '',included INTEGER NOT NULL DEFAULT 0 CHECK(included>=0),extra_cents INTEGER NOT NULL DEFAULT 0 CHECK(extra_cents>=0),created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,UNIQUE(studio_id,id),FOREIGN KEY(studio_id,client_id) REFERENCES clients(studio_id,id),FOREIGN KEY(studio_id,package_id) REFERENCES packages(studio_id,id));
 CREATE TABLE IF NOT EXISTS photos(id TEXT PRIMARY KEY,studio_id TEXT NOT NULL,session_id TEXT NOT NULL,original_name TEXT NOT NULL,original_key TEXT NOT NULL,preview_key TEXT NOT NULL,sha256 TEXT NOT NULL,mime TEXT NOT NULL,bytes INTEGER NOT NULL,width INTEGER NOT NULL,height INTEGER NOT NULL,status TEXT NOT NULL DEFAULT 'pending' CHECK(status IN ('pending','approved','rejected')),ai_status TEXT NOT NULL DEFAULT 'not_requested',created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,UNIQUE(studio_id,id),FOREIGN KEY(studio_id,session_id) REFERENCES sessions(studio_id,id));
 CREATE TABLE IF NOT EXISTS curation_runs(id TEXT PRIMARY KEY,studio_id TEXT NOT NULL,session_id TEXT NOT NULL,status TEXT NOT NULL DEFAULT 'not_requested',model TEXT,created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,UNIQUE(studio_id,id),FOREIGN KEY(studio_id,session_id) REFERENCES sessions(studio_id,id));
@@ -43,6 +44,8 @@ if(!curationKeys.some(k=>k.table==='curation_runs'&&k.from==='studio_id')){
  PRAGMA user_version=1;
  COMMIT;`);
 }else db.exec('PRAGMA user_version=1');
+// Add optional contract fields without repricing existing packages or sessions.
+transaction(()=>{for(const table of ['packages','sessions']){const columns=db.prepare('PRAGMA table_info('+table+')').all();for(const name of ['discount_from','discount_cents'])if(!columns.some(c=>c.name===name))db.exec('ALTER TABLE '+table+' ADD COLUMN '+name+' INTEGER');}});
 export type Row = Record<string,any>;
 export function one(sql:string,...args:any[]):Row|undefined {return db.prepare(sql).get(...args) as Row|undefined;}
 export function all(sql:string,...args:any[]):Row[] {return db.prepare(sql).all(...args) as Row[];}

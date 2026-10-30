@@ -1,3 +1,4 @@
+import {productDescriptions} from '../lib/product-copy.ts';
 import {saveProduct} from '../lib/shop.ts';
 import {mkdir,writeFile,readFile} from 'node:fs/promises';
 import path from 'node:path';
@@ -11,11 +12,11 @@ if(one('SELECT id FROM users LIMIT 1')){console.log('Banco existente preservado.
 const accounts=[];
 for(const [i,email,name] of [[0,'demo@belem.test','Estúdio Lilian Cristina · demonstração'],[1,'outro@belem.test','Ateliê Horizonte · demonstração']] as const){
  const password=token().slice(0,20)+'aA7!',{studio,user}=createStudio(name,email,password);accounts.push({email,password,studioId:studio});
- for(const [category,name,priceCents] of [['mug','Caneca · fictícia',4500],['album','Álbum · fictício',25000],['frame','Quadro · fictício',12000],['shirt','Camiseta · fictícia',6500],['magnet','Ímã · fictício',1500],['digital-all','Todos os arquivos digitais · fictício',35000]] as const)saveProduct(studio,{name,category,priceCents,description:'Produto demonstrativo. Nenhuma compra ou cobrança disponível.',active:true},user);
+ for(const [category,name,priceCents] of [['mug','Caneca · fictícia',4500],['album','Álbum · fictício',25000],['frame','Quadro · fictício',12000],['shirt','Camiseta · fictícia',6500],['magnet','Ímã · fictício',1500],['digital-all','Todos os arquivos digitais · fictício',35000]] as const)saveProduct(studio,{name,category,priceCents,description:productDescriptions[category],active:true},user);
  const family=saveFamily(studio,{name:i?'Família Horizonte · fictícia':'Família Aurora · fictícia',notes:'Cadastro inteiramente fictício para demonstração.'},user);
- const client=saveClient(studio,{name:i?'Cliente Horizonte · fictícia':'Cliente Aurora · fictícia',familyId:family,email:i?'horizonte@example.invalid':'aurora@example.invalid',phone:''},user);
- const pkg=savePackage(studio,{name:'Memórias · pacote fictício',included:10,extraCents:2500},user);
- savePackage(studio,{name:'Essência · pacote fictício',included:5,extraCents:3500},user);
+ const pkg=savePackage(studio,{name:'Memórias · pacote fictício',included:10,extraCents:4000},user);
+ const client=saveClient(studio,{name:i?'Cliente Horizonte · fictícia':'Cliente Aurora · fictícia',familyId:family,email:i?'horizonte@example.invalid':'aurora@example.invalid',phone:'',packageId:pkg},user);
+ savePackage(studio,{name:'Essência · pacote fictício',included:5,extraCents:4000},user);
  const session=saveSession(studio,{title:i?'Uma tarde no Horizonte':'Uma história de Belém',clientId:client,packageId:pkg,shootDate:''},user);
  await mkdir(path.join(root,'objects',studio,session),{recursive:true,mode:0o700});
  for(let n=0;n<5;n++){

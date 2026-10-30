@@ -6,7 +6,7 @@
  let revision=ctx.revision,dirty=false,saving=false,pending=false,conflict=false;
  const status=document.querySelector('#gallery .sub');
  status.setAttribute('role','status');status.setAttribute('aria-live','polite');
- function savedCopy(){return selected.size+' fotografias escolhidas · '+ctx.included+' incluídas no pacote. Escolhas salvas.';}
+ function savedCopy(){const extra=Math.max(0,selected.size-ctx.included),discount=ctx.discountFrom!=null&&extra>=ctx.discountFrom,unit=discount?ctx.discountCents:ctx.extraCents,fmt=n=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(n/100);return selected.size+' fotografias escolhidas · '+ctx.included+' incluídas no pacote · '+extra+' extras ('+fmt(unit)+' cada). '+(discount?'Economia de '+fmt(extra*(ctx.extraCents-unit))+'. ':ctx.discountFrom?'A partir de '+ctx.discountFrom+' extras, todas as extras custam '+fmt(ctx.discountCents)+' cada. ':'')+'Escolhas salvas.';}
  function notice(message,retry=false){status.replaceChildren(document.createTextNode(message));if(retry){const button=document.createElement('button');button.type='button';button.textContent=conflict?'Recarregar e conferir':'Tentar salvar novamente';button.onclick=()=>{if(conflict)location.reload();else{pending=true;void flush();}};status.append(document.createElement('br'),button);}}
  async function flush(){
   if(saving||conflict)return false;
