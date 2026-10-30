@@ -15,6 +15,8 @@ export function renderGallery(g:any){
  source=source.replaceAll("new Audio('A_Bencao_Belem_Site.mp3')","new Audio('/media/A_Bencao_Belem_Site.mp3')").replaceAll("new Audio('Trilha_Estrela_de_Belem_site.mp3')","new Audio('/media/Trilha_Estrela_de_Belem_site.mp3')");
  const safe=(x:unknown)=>JSON.stringify(x).replace(/</g,'\\u003c');
  source=source.replace('<script>const demoPhotos=',`<script>window.BELEM_UPLOADED_PHOTOS=${safe(urls)};window.BELEM_GALLERY_ID=${safe(g.id)};</script><script>const demoPhotos=`);
+ const theme=readFileSync(path.join(repository,'apps/studio/lib/gallery-theme.css'),'utf8');
+ source=source.replace('</head>',`<style id="studio-gallery-theme">${theme}</style></head>`);
  const adapter=readFileSync(path.join(repository,'apps/studio/lib/gallery-adapter.js'),'utf8');
  return source.replace('</body>',`<script>window.BELEM_SERVER_CONTEXT=${safe(context)};</script><script>${adapter}</script></body>`);
 }
