@@ -1,8 +1,8 @@
 {
   "verification": {
     "verified": true,
-    "origin": "https://review-guardian-schools-west.trycloudflare.com",
-    "checkedAt": "2026-10-30T02:38:55.467Z",
+    "origin": "https://checked-globe-suite-newsletter.trycloudflare.com",
+    "checkedAt": "2026-10-30T02:51:15.365Z",
     "checks": [
       "HTTPS login page",
       "anonymous admin denied",
@@ -14,8 +14,8 @@
       "cross-studio access denied"
     ]
   },
-  "url": "https://review-guardian-schools-west.trycloudflare.com/admin",
-  "expiresAt": "2026-10-30T05:38:55.713Z",
-  "user_invite_ciphertext": "YAtqrUb0sqDaVM4lA9aU/tLufuUS2xG8hduKKZH+bS4wJgyljuYwVWu3EMkA+SIo4xnlkoM0qlbUlYp03jPMzzUNCY0/fR/8oDQLg/AEWSXRXxxGwg0WfVPwpiO9lMII4kVU0O/f7FiRwuyqaHjyk6OsLdoSsJLtD0iOyd4W/R2GHtUSKNZsWf2lFZZ/yO8g1Io8mvQA7brt6wNJ8jc4HWP+S1S7ry8vWaHfU6cVW3nWsC51hRZ/9Bua0JjQYpae3NyuzuVZmY+qyyY9MJBUGkD9yAoj2bY6i8LeIbD+N9Ba1/ztqrj/YK10JzRETwl3m/1U2vIKyR9EGR89rsuICbHPN2j/6t6vHlMT53nmmydmsRdK/MZcbemEmL9DGK2zG9H8ucffGgJblTA9Fb8JW0eP6Cmwv5pMfZAgfqMxHYHEk/iq3aFFiwHsBd8qb8/zg1nQy2y3dX+lSGtF+poLkHwAObdFumHRiC2/JhXOYnzGRMn+p7SzO+tMGXLsEK76DzcIeyRdT9s62VBzvZeN6Df5nCc1v+rO/VFcAWyXAhMUOg+6EDc8m/GDXafPamhA4hTeYo7T8NTlA4SYqdWeQaS20KePa7FvxzKA0ZLXykOG1c5J1HMJ72BeQ3KCo3VJc3USRVBylNdJ2NaxZdpGz6+npm1v7xK03zq3P7IgQ6Q=",
-  "verification_invite_ciphertext": "O8c5EqRNYFlE2/+JtuS/tOOSRXQfRO1S222NljcBz9ioIxh7GUwKjXs+HCXc4vi+Pzjoqh1+bH2I9GSVB0M0XGZu0YCWHIhpy3yH6NC4ApPqpS/vBQs7wCpXgrY+PFvwL60Zr74UNNe0eaiZlUr31RlsRc2sEjWReKVZWeFr80Cv10HugyFB5q7LBEug3rfWfyBKH/Qg5MkDIAO3SQlBXc2ousyj8YyKZ26uyS6ba8A8Kg79NpkZJm7uxRR7VpLJf351eqGaDG4jJvmsEfLO3o7CncEXWUSBPSj62ULWN7P56DurC19vcn/72rDI/S+AICPO+bS3sVDTWkL53hXY6eydOnig/V/vt0NlAEMdS2VeXlmtlNCKSiLNq7lmpg0NkFlQfiFwThLMuu280sVdDQi/43FJ2VsCYCEqAJ8bxhmp/Rn2KrpSF4Z9Y1BrmXSUauEkWcpLLdp3uX0CMWo+uoGP5p2HkMSllvIxdKrrqD2OJasBr2VqWvTxGrPTZxww07ItMbjAo3qn5jRIucuCP5f7cn3Bypl4howMfIF8brTJPQKAEnjsv2v67Z1k3ZwpZEk3CBBxhlQ2AfhBBQXrU0DQXeBKidUxGKHSW8HcdV7e2RfkBq6qWlj7KOrkC7AR3e1r/n0pxFgZCVoxhOcbXMHp4AkbElOAGppkTo7mcLQ="
+  "url": "https://checked-globe-suite-newsletter.trycloudflare.com/admin",
+  "expiresAt": "2026-10-30T05:51:15.578Z",
+  "user_invite_ciphertext": "pFNO4CX5FTVifr2IXXnxZ8+UgJ4VL0TXYk/D0jNKHquzKddDLBjx58TEqjEBn1syEeX4P8FK9z8WfcckVtofQEOey0jeCtSJ5aCCfQl0X1yxzbgMKHsWS1e7lmYXVEwzV6W+JyliPDKt/Ggn5DZRiXoDQ8/z1OaJrKW5MEm5JwrqAML3DcHZos1wONdOrkgTgjmZ17c/a7BJw32ZUwcDgco8FdBSNxXb7R20N+E8b8e+hctcuGC+DPygmHgPsgqHHXtaVm9JpLiEbb9nfgWEfkqazP644WgzCjSYsSA+2TFsXX76nOldpsKm7IjI+2cFSK0TBANO4v+LsZFnn5Xc/C4CxGCL64YbnPrqnOk6YXn3qudioMWPWFJTn5C5+07IuqEILEiiR8ul1/4zrinL2pbf9h7X4Qyyr6Ij1iTMnSxVIDFEWACX6uMkOie6oz1Lu/IgoDqisIwlGTADzikueeKCQBIsM7YltMemgN7JePVOiSTnGILkMTqFBCGNTleo5rv9oP2dpoczJuW2UAtVs8InBW3THRqrTivTHvb6aMp8ILbPqRzi17gGFaNCAaFGA+RixmyNHbk8OJ+3oVFBhFM4lVgimHYwGLzpNFeZbIK9lRAvBeVIFxWdOmVxWCbyvozSSBCX20N4uGo3o8UZrE2D4GPlSoFcsKWX/nr9A4I=",
+  "verification_invite_ciphertext": "ajZHHP2CBs8G7uWdDsHLU76GYgcLGMylhW+Hm10FBe4CS5IhB6CAMt5WoTrO9DfviljCkhDGHxDD4SEir90RPzfqSLJre8+aavRFpAqk4KzoBCaDlN8AYB0jS4oBY6TX1Ka3ow40ZPi0QBJ/oKj8H4uXCAzwWATa/dqxpVXcwkqutRCwMnrB2TeRhppkiIC7bM3TLAko4jqF4FRQSVSjfkJiMDW4pOjI90tbDSrDPDppN/eHLUBvB8sBGCbYbESY1++4LGEU0q3mROKyDYGoLMnZmpNY0Z8ca/DSdXVNHhyTOdFItTQeLIJ0bc8kSTk2XD1mS/ZNlI40W2N0ybbyEh864y+kUal4B01gNaDig7d+2cjtZ5OcvUYHC6H/GnudCh56nf9KcPeWaFsrt2D8crjfgVrllgwXw7QokGfx0bAv4a2rYOj6hsGTIgEr/TgqbQ5Lkwo7HhkM0sVcyc9xW1Nxu0h2L5x7//QMM2R0or5uBk5ySY/XSl21VocRIX2T1o0RdOTh5xaXErATvcYx5Y73PFAbZ1BkxUWg3r6DYQSCxKEMEGkFaDkVhBpCY0Cu+9OavW/twTJqkqj9v4TIpG4/wdzjjdVjQGg7voInTtO27+53W0Lpt0KfXL3PXC4AMxHEzN0Q4eh68SMxZo6CI/cv0sthjDW6HOyoAk51auo="
 }
