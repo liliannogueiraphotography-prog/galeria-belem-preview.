@@ -1,3 +1,4 @@
+import {catalog,cart,estimate} from './shop.ts';
 import {readFileSync,existsSync} from 'node:fs';
 import path from 'node:path';
 import {galleryContext} from './service.ts';
@@ -5,7 +6,7 @@ import {origin} from './auth.ts';
 function findRepository(){let current=process.env.BELEM_REPOSITORY_DIR||process.cwd();for(let i=0;i<5;i++){if(existsSync(path.join(current,'index.html'))&&existsSync(path.join(current,'.github/scripts/gallery-smoke.mjs')))return current;current=path.dirname(current);}throw new Error('Approved gallery template not found');}
 export const repository=findRepository();
 export function renderGallery(g:any){
- const context=galleryContext(g);const urls=context.photos.map(p=>new URL(p.url,origin()).href);
+ const context={...galleryContext(g),products:catalog(g.studio_id,true),cart:cart(g),estimate:estimate(g)};const urls=context.photos.map(p=>new URL(p.url,origin()).href);
  const selected=context.selectedPhotoIds.map((key:string)=>context.photos.findIndex(p=>p.id===key)).filter((i:number)=>i>=0);
  let source=readFileSync(path.join(repository,'index.html'),'utf8');
  let index=0;source=source.replace(/data:image\/[^;]+;base64,[A-Za-z0-9+/=]+/g,()=>urls[index++%urls.length]);
@@ -17,7 +18,8 @@ export function renderGallery(g:any){
  source=source.replace('<script>const demoPhotos=',`<script>window.BELEM_UPLOADED_PHOTOS=${safe(urls)};window.BELEM_GALLERY_ID=${safe(g.id)};</script><script>const demoPhotos=`);
  const theme=readFileSync(path.join(repository,'apps/studio/lib/gallery-theme.css'),'utf8');
  source=source.replace('</head>',`<style id="studio-gallery-theme">${theme}</style></head>`);
+ const shop=readFileSync(path.join(repository,'apps/studio/lib/shop-adapter.js'),'utf8');
  const adapter=readFileSync(path.join(repository,'apps/studio/lib/gallery-adapter.js'),'utf8');
- return source.replace('</body>',`<script>window.BELEM_SERVER_CONTEXT=${safe(context)};</script><script>${adapter}</script></body>`);
+ return source.replace('</body>',`<script>window.BELEM_SERVER_CONTEXT=${safe(context)};</script><script>${adapter}</script><script>${shop}</script></body>`);
 }
 export const galleryHeaders={'Content-Type':'text/html; charset=utf-8','Cache-Control':'private, no-store','Referrer-Policy':'no-referrer','X-Content-Type-Options':'nosniff','Content-Security-Policy':"default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"};

@@ -21,6 +21,7 @@
   finally{saving=false;}
  }
  persistBelemState=function(){dirty=true;pending=true;void flush();};
+ window.BELEM_SAVE_SELECTION=async function(){for(let attempt=0;saving&&attempt<100;attempt++)await new Promise(resolve=>setTimeout(resolve,100));if(saving||conflict)return false;if(dirty){pending=true;return flush();}return true;};
  window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
  const oldFinish=belemFinish;
  belemFinish=async function(){if(saving){notice('Aguarde o salvamento das suas escolhas.');return;}if(dirty){pending=true;if(!await flush())return;}oldFinish();document.querySelector('#finish .last>p').textContent='Suas fotografias escolhidas estão salvas para o estúdio.';document.querySelector('#finish .npnotice').textContent='Esta etapa registra a seleção das fotografias. Loja, pedido e pagamento ainda não estão disponíveis; não há cobrança.';};
