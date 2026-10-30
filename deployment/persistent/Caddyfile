@@ -1,0 +1,11 @@
+{
+ email {$ACME_EMAIL}
+}
+{$BELEM_HOST} {
+ encode zstd gzip
+ header {
+  X-Content-Type-Options nosniff
+  Referrer-Policy no-referrer
+ }
+ reverse_proxy app:3000
+}

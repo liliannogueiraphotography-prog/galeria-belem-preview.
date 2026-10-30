@@ -1,0 +1,45 @@
+# Dedicated persistent acceptance environment. Never deploys GitHub Pages.
+name: belem-studio-persistent
+services:
+  app:
+    build:
+      context: ../..
+      dockerfile: deployment/Dockerfile
+    restart: unless-stopped
+    entrypoint: ["node", "/app/persistent/entrypoint.mjs"]
+    environment:
+      APP_ORIGIN: https://${BELEM_HOST:?Set a dedicated test hostname}
+      BELEM_DATA_DIR: /var/lib/belem
+      BELEM_REPOSITORY_DIR: /app
+      NODE_ENV: production
+      NEXT_TELEMETRY_DISABLED: '1'
+    volumes:
+      - studio_data:/var/lib/belem
+      - ./entrypoint.mjs:/app/persistent/entrypoint.mjs:ro
+    expose: ['3000']
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/v1/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+  https:
+    image: caddy:2.10-alpine
+    restart: unless-stopped
+    depends_on:
+      app:
+        condition: service_healthy
+    environment:
+      BELEM_HOST: ${BELEM_HOST:?Set a dedicated test hostname}
+      ACME_EMAIL: ${ACME_EMAIL:?Set the certificate contact email}
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - certificates:/data
+      - caddy_config:/config
+volumes:
+  studio_data:
+  certificates:
+  caddy_config:
